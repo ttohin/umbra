@@ -7,10 +7,6 @@ public class Rid : MonoBehaviour {
 	private Animator animator;
 
 	public float moveTime = 5.0f;			//Time it will take object to move, in seconds.
-	public LayerMask blockingLayer;			//Layer on which collision will be checked.
-
-
-	private CircleCollider2D collider; 		//The BoxCollider2D component attached to this object.
 	private Rigidbody2D rb2D;				//The Rigidbody2D component attached to this object.
 	private float inverseMoveTime;			//Used to make movement more efficient.
 	bool isMoving = false;
@@ -18,14 +14,7 @@ public class Rid : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator>();
-
-		//Get a component reference to this object's BoxCollider2D
-		collider = GetComponent <CircleCollider2D> ();
-
-		//Get a component reference to this object's Rigidbody2D
 		rb2D = GetComponent <Rigidbody2D> ();
-
-		//By storing the reciprocal of the move time we can use it by multiplying instead of dividing, this is more efficient.
 		inverseMoveTime = 1f / moveTime;
 	}
 	
