@@ -52,5 +52,11 @@ public class MilitaryRid : MonoBehaviour {
 		if (other.gameObject.name == "BottonWallGismo") {
 			sceneController.OnBottomWallReached ();
 		}
+
+        if (other.gameObject.tag == "EnemyBullet")
+        {
+            animator.SetTrigger("hit");
+            Destroy(other.gameObject);
+        }
 	}
 }
